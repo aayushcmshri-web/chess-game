@@ -1,0 +1,172 @@
+:root {
+  --felt: #1c2320;
+  --felt-deep: #131816;
+  --ivory: #eee7d8;
+  --ivory-dim: #b9b2a2;
+  --brass: #b98d4d;
+  --brass-bright: #d9a85f;
+  --danger: #c0604a;
+  --board-light: #eadfc6;
+  --board-dark: #7c6142;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 0%, #232c28 0%, var(--felt) 45%, var(--felt-deep) 100%);
+  color: var(--ivory);
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.topbar {
+  text-align: center;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 2.4rem;
+  letter-spacing: 0.14em;
+  font-weight: 400;
+  color: var(--ivory);
+  text-transform: uppercase;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--brass);
+  font-style: italic;
+}
+
+.board-area {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.board {
+  width: min(560px, 88vw);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.5), 0 0 0 10px var(--felt-deep), 0 0 0 11px var(--brass);
+  border-radius: 2px;
+}
+
+.side-panel {
+  width: 90px;
+  min-height: 200px;
+  display: none;
+}
+
+.captured {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  font-size: 1.3rem;
+  opacity: 0.8;
+}
+
+.status-row {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.turn-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  color: var(--ivory-dim);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--ivory);
+  box-shadow: 0 0 8px rgba(238,231,216,0.6);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.dot.black {
+  background: #2b2b2b;
+  box-shadow: 0 0 8px rgba(0,0,0,0.6);
+  border: 1px solid #555;
+}
+
+.status-message {
+  min-height: 1.2em;
+  font-size: 0.95rem;
+  color: var(--brass-bright);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.status-message.danger {
+  color: var(--danger);
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.controls button {
+  background: transparent;
+  border: 1px solid var(--brass);
+  color: var(--ivory);
+  padding: 8px 18px;
+  font-family: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.controls button:hover {
+  background: var(--brass);
+  color: var(--felt-deep);
+}
+
+/* chessboard.js square color overrides */
+.white-1e1d7 {
+  background-color: var(--board-light) !important;
+}
+.black-3c85d {
+  background-color: var(--board-dark) !important;
+}
+
+.highlight-check {
+  box-shadow: inset 0 0 0 4px var(--danger) !important;
+}
+
+@media (max-width: 500px) {
+  .topbar h1 { font-size: 1.8rem; }
+  .board { width: 92vw; }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chess</title>
+
+<link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="topbar">
+    <h1>Chess</h1>
+    <p class="subtitle">two players, one board</p>
+  </header>
+
+  <main class="board-area">
+    <div class="side-panel left">
+      <div class="captured" id="captured-white"></div>
+    </div>
+
+    <div id="board" class="board"></div>
+
+    <div class="side-panel right">
+      <div class="captured" id="captured-black"></div>
+    </div>
+  </main>
+
+  <div class="status-row">
+    <div class="turn-indicator" id="turn-indicator">
+      <span class="dot" id="turn-dot"></span>
+      <span id="turn-text">White to move</span>
+    </div>
+    <div class="status-message" id="status-message"></div>
+    <div class="controls">
+      <button id="undoBtn">Undo</button>
+      <button id="resetBtn">New game</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.js"></script>
+<script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
